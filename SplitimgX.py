@@ -10,7 +10,7 @@ def SplitimgX(source_path,landscapes_path,Portraits_path,extentions):
             SplitimgX(folder,landscapes_path / folder.name,Portraits_path / folder.name,extentions)
         elif folder.is_file():
             if folder.suffix.lower() in extentions :
-                img=cv2.imread(rf"{folder}")
+                img=cv2.imread(f"{folder}")
                 print(folder.name)
                 print(img.shape[0])
                 print(img.shape[1])
@@ -28,6 +28,6 @@ path=Path(rf"{p}")
 Lpath=path.parent / f"{path.name}Landscape"
 Ppath=path.parent / f"{path.name}Portrait"
 
-extentions=input("enter extentions please (.png .jpg .heic)").lower().split(" ")
+extentions=input("enter extentions please (.png .jpg)").lower().split(" ")
 
 SplitimgX(path,Lpath,Ppath,extentions)
